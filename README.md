@@ -1,4 +1,4 @@
-# Siuan
+# Suan
 
 ## Installation
 Run the following to create a conda environment with the necessary dependencies.
@@ -34,12 +34,12 @@ python train/train_sft.py --model /path/to/model --dataset alpaca --loss ce --ou
 ```
 Further, to perform preference optimization run this command:
 ```bash
-python train/train_q_dpo.py --dataset $DATASET --loss $LOSS --model /path/to/model --peft_weights /path/to/peft --output_dir /path/to/output/directory --max_length MAX_LENGTH
+python train/train_q_dpo.py --dataset $DATASET --loss $LOSS --model /path/to/model --peft_weights /path/to/peft --output_dir /path/to/output/directory --max_length $MAX_LENGTH
 ```
-Here $\text{DATASET}$ supports PKU-Safe-RLHF dataset denoted ```pku``` and HH-RLHF dataset denoted ```hh```,  while $\text{LOSS}$ accepts three options, DPO ```dpo```, IPO ```ipo``` and our loss Siuan ```siu```.
+Here $\text{DATASET}$ supports PKU-Safe-RLHF dataset denoted ```pku``` and HH-RLHF dataset denoted ```hh```,  while $\text{LOSS}$ accepts three options, DPO ```dpo```, IPO ```ipo``` and our loss Suan ```siu```.
 To train Safe-DPO run:
 ```bash
-python train/train_q_safedpo.py --dataset pku-safe --loss safe-dpo --model /path/to/model --peft_weights /path/to/peft --output_dir /path/to/output/directory --max_length MAX_LENGTH
+python train/train_q_safedpo.py --dataset pku-safe --loss safe-dpo --model /path/to/model --peft_weights /path/to/peft --output_dir /path/to/output/directory --max_length $MAX_LENGTH
 ```
 
 ### Inference
@@ -74,7 +74,7 @@ python evaluation/evaluation_factuality.py --input_file /path/to/responses --out
 ```
 Finally, to compare the performance on NoveltyBench we refer to the original [repo](https://github.com/novelty-bench/novelty-bench). 
 
-As our code for the inference and evaluation relies on vLLM engine, one might consider disabling ```export VLLM_USE_FLASHINFER_SAMPLER=0``` flag to avoid errors with ```python 3.11```. 
+As our code for the inference and evaluation relies on vLLM engine, one might consider using ```export VLLM_USE_FLASHINFER_SAMPLER=0``` commands to avoid errors with ```python 3.11```. 
 
 ### Citation 
 TBD.
