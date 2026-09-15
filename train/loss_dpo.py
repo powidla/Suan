@@ -82,8 +82,8 @@ class SiULoss(Loss):
 
         loss = sup_loss + self.beta * unsup_loss
 
-        chosen_rewards = self.beta * (chosen_logps - ref_chosen_logps).detach()
-        rejected_rewards = self.beta * (rejected_logps - ref_rejected_logps).detach()
+        chosen_rewards = (chosen_logps - ref_chosen_logps).detach()
+        rejected_rewards = (rejected_logps - ref_rejected_logps).detach()
 
         return loss, chosen_rewards, rejected_rewards
     
