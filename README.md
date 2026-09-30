@@ -78,6 +78,7 @@ As our code for the inference and evaluation relies on vLLM engine, one might co
 
 ### Citation 
 If you find this repo useful, please consider citing our work
+```
 @misc{cherednichenko2026suanrectifyingdirectpreference,
       title={Suan: Rectifying Direct Preference Safety Alignment in Large Language Models}, 
       author={Oleksandr Cherednichenko and Roman Klypa},
@@ -87,6 +88,6 @@ If you find this repo useful, please consider citing our work
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2609.08634}, 
 }
-
+```
 ### License
 The code is released under the Apache 2.0 license. 
