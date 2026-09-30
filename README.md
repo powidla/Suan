@@ -1,4 +1,6 @@
 # Suan
+This repository contains the official implementation for the paper [Suan: Rectifying Direct Preference Safety Alignment
+in Large Language Models](https://arxiv.org/abs/2609.08634). It provides everything needed to reproduce our results, including scripts for model quantization, training, inference, and evaluation.
 
 ## Installation
 Run the following to create a conda environment with the necessary dependencies.
