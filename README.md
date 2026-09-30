@@ -77,7 +77,16 @@ Finally, to compare the performance on NoveltyBench we refer to the original [re
 As our code for the inference and evaluation relies on vLLM engine, one might consider using ```export VLLM_USE_FLASHINFER_SAMPLER=0``` commands to avoid errors with ```python 3.11```. 
 
 ### Citation 
-TBD.
+If you find this repo useful, please consider citing our work
+@misc{cherednichenko2026suanrectifyingdirectpreference,
+      title={Suan: Rectifying Direct Preference Safety Alignment in Large Language Models}, 
+      author={Oleksandr Cherednichenko and Roman Klypa},
+      year={2026},
+      eprint={2609.08634},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2609.08634}, 
+}
 
 ### License
 The code is released under the Apache 2.0 license. 
