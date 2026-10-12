@@ -71,6 +71,7 @@ class Inference:
             model=self.base_model,
             tensor_parallel_size=tensor_parallel_size,
             gpu_memory_utilization=gpu_memory_utilization,
+            max_model_len=4096,
             trust_remote_code=True,
         )
         if quantization:

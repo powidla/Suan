@@ -55,8 +55,8 @@ class Trainer:
         elif self.loss_name == 'ipo':
             loss_func = loss_dpo.IPOLoss().get_loss_fn()
             use_reference = True
-        elif self.loss_name == 'siu':
-            loss_func = loss_dpo.SiULoss().get_loss_fn()
+        elif self.loss_name == 'suan':
+            loss_func = loss_dpo.SuanLoss().get_loss_fn()
             use_reference = True
         else:
             raise ValueError(f"Invalid loss function name: {self.loss_name}")

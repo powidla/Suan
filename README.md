@@ -5,9 +5,9 @@ in Large Language Models](https://arxiv.org/abs/2609.08634). It provides everyth
 ## Installation
 Run the following to create a conda environment with the necessary dependencies.
 ```bash
-conda create -n siu python=3.11
+conda create -n suan python=3.11
 ```
-Next, after the activation of ```siu``` environment, install required libraries.
+Next, after the activation of ```suan``` environment, install required libraries.
 ```bash
 pip install einops
 pip install peft
@@ -15,10 +15,11 @@ pip install trl
 pip install bitsandbytes
 pip install tiktoken
 pip install pydantic
-pip install vllm 
+pip install vllm
+pip install vllm-bnb-plugin
 ```
 
-Next, after the activation of ```siu``` environment, we recommend installing our code as a package. To do this, run the following.
+Next, after the activation of ```suan``` environment, we recommend installing our code as a package. To do this, run the following.
 ```
 pip install -e .
 ```
@@ -38,7 +39,7 @@ Further, to perform preference optimization run this command:
 ```bash
 python train/train_q_dpo.py --dataset $DATASET --loss $LOSS --model /path/to/model --peft_weights /path/to/peft --output_dir /path/to/output/directory --max_length $MAX_LENGTH
 ```
-Here $\text{DATASET}$ supports PKU-Safe-RLHF dataset denoted ```pku``` and HH-RLHF dataset denoted ```hh```,  while $\text{LOSS}$ accepts three options, DPO ```dpo```, IPO ```ipo``` and our loss Suan ```siu```.
+Here $\text{DATASET}$ supports PKU-Safe-RLHF dataset denoted ```pku``` and HH-RLHF dataset denoted ```hh```,  while $\text{LOSS}$ accepts three options, DPO ```dpo```, IPO ```ipo``` and our loss Suan ```suan```.
 To train Safe-DPO run:
 ```bash
 python train/train_q_safedpo.py --dataset pku-safe --loss safe-dpo --model /path/to/model --peft_weights /path/to/peft --output_dir /path/to/output/directory --max_length $MAX_LENGTH
@@ -47,13 +48,13 @@ python train/train_q_safedpo.py --dataset pku-safe --loss safe-dpo --model /path
 ### Inference
 To run the inference of Base version of the model execute the following command:
 ```bash
-python inference/inference_sft.py --base_model /path/to/base_model --dataset $DATASET --dataset_format sft --quantization bitsandbytes
+python inference/inference.py --base_model /path/to/base_model --dataset $DATASET --dataset_format sft --quantization bitsandbytes
 ```
 Supported datasets: Malicious Instruct - ```mi```, HarmBench - ```hb```, AdvBench - ```ab```, SORRY-Bench - ```sb```, XS-Test - ```xs```, OR-Bench - ```or```, AlpacaFarm - ```ae```, MT-Bench - ```mt```, Arena Hard - ```ah```, ARC - ```arc```, MMLU - ```mmlu```, Novelty Bench - ```nb```. 
 
 Similarly, the inference of SFT/DPO model requires running the following command:
 ```bash
-python inference/inference_sft.py --base_model /path/to/base_model --peft_weights /path/to/peft --dataset $DATASET --dataset_format sft --quantization bitsandbytes
+python inference/inference.py --base_model /path/to/base_model --peft_weights /path/to/peft --dataset $DATASET --dataset_format sft --quantization bitsandbytes
 ```
 Where peft weights accept both SFT and DPO models stored in the output directory. 
 

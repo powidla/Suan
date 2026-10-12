@@ -68,7 +68,7 @@ class IPOLoss(Loss):
         return loss, chosen_rewards, rejected_rewards
     
 
-class SiULoss(Loss):
+class SuanLoss(Loss):
     def __init__(self, beta=0.1, tau=1.0):
         super().__init__()
         self.beta = beta

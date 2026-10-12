@@ -23,7 +23,7 @@ class FormatXSTest:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/XS-Test/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/XS-Test", split=self.split)
         self.data = self.data.filter(lambda x: x["prompt"].strip() != "")
         self.data = self.data.filter(lambda x: x["label"] == "safe")
 
@@ -40,7 +40,7 @@ class FormatMaliciousInstruct:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/MaliciousInstruct/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/MaliciousInstruct", split=self.split)
         self.data = self.data.filter(lambda x: x["prompt"].strip() != "")
 
     @property
@@ -52,7 +52,7 @@ class FormatAdvBench:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/AdvBench/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/AdvBench", split=self.split)
         self.data = self.data.filter(lambda x: x["prompt"].strip() != "")
 
     @property
@@ -64,7 +64,7 @@ class FormatHarmBench:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/HarmBench/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/HarmBench", split=self.split)
         self.data = self.data.filter(lambda x: x["prompt"].strip() != "")
 
     @property
@@ -75,7 +75,7 @@ class FormatHarmBench:
 class FormatHHRLHF:
     def __init__(self, split):
         self.split = split
-        self.data = load_dataset("parquet", data_dir="sets/HH-RLHF/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/HH-RLHF", split=self.split)
 
     @property
     def dpo_format(self):
@@ -89,7 +89,7 @@ class FormatHHRLHF:
 class FormatPKUDPO:
     def __init__(self, split):
         self.split = split
-        self.data = load_dataset("parquet", data_dir="sets/PKU/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/PKU", split=self.split)
 
     @property
     def dpo_format(self):
@@ -139,7 +139,7 @@ class FormatSorryBench:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/SorryBench/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/SorryBench", split=self.split)
         self.data = self.data.filter(lambda x: x["prompt"].strip() != "")
 
     @property
@@ -151,7 +151,7 @@ class FormatORBench:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/OR-Bench/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/OR-Bench", split=self.split)
         self.data = self.data.filter(lambda x: x["prompt"].strip() != "")
 
     @property
@@ -163,7 +163,7 @@ class FormatMTBench:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/MT-Bench/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/MT-Bench", split=self.split)
         self.data = self.data.filter(lambda x: x["prompt"].strip() != "")
 
     @property
@@ -175,7 +175,7 @@ class FormatAlpacaEval:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/AlpacaEval/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/AlpacaEval", split=self.split)
         self.data = self.data.filter(lambda x: x["instruction"].strip() != "")
 
     @property
@@ -189,7 +189,7 @@ class FormatArenaHard:
     def __init__(self, split, use_sys_prompt=False):
         self.split = split
         self.use_sys_prompt = use_sys_prompt
-        self.data = load_dataset("parquet", data_dir="sets/ArenaHard/data", split=self.split)
+        self.data = load_dataset("SUAN-PO/ArenaHard", split=self.split)
         self.data = self.data.filter(lambda x: x["prompt"].strip() != "")
 
     @property

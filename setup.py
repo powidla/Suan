@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="siu",
+    name="suan",
     packages=[
         'data',
         'inference',

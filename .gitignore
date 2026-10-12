@@ -1,0 +1,20 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+unsloth_compiled_cache
+
+
+# Environment and cluster specific files
+*.egg-info/
+*.sh
+*.slurm
+*.out
+*.err
+
+# outputs
+plots
+outputs
+slurms
+
+# locals
+*.ipynb
