@@ -1,15 +1,32 @@
 import os
+import json
 import logging
 
-def log_metrics(log_dir, filename="metrics.log"):
-    os.makedirs(log_dir, exist_ok=True)
-    logger = logging.getLogger(f"dpo_metrics.{log_dir}")
-    logger.setLevel(logging.INFO)
-  
-    if not logger.handlers:
-        log_path = os.path.join(log_dir, filename)
-        handler = logging.FileHandler(log_path, mode="a")
-        handler.setFormatter(logging.Formatter("%(message)s"))  # raw JSON lines only
-        logger.addHandler(handler)
-        logger.propagate = False
-    return logger
+
+class Logger:
+    def __init__(self, log_dir, filename="metrics.log", overwrite=True):
+        os.makedirs(log_dir, exist_ok=True)
+        self.path = os.path.join(log_dir, filename)
+        self.handling = open(self.path, "w" if overwrite else "a", buffering=1)
+
+    def info(self, message):
+        self.handling.write(message + "\n")
+        self.handling.flush()
+
+    def log(self, record: dict):
+        self.info(json.dumps(record))
+
+    def close(self):
+        if not self.handling.closed:
+            self.handling.close()
+
+    def __del__(self):
+        try:
+            self.close()
+        except Exception:
+            pass
+
+# function that is called in dpo_trainer.py
+def log_metrics(log_dir, filename="metrics.log", overwrite=True):
+    return Logger(log_dir, filename, overwrite)
+    
