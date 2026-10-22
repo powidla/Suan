@@ -25,8 +25,4 @@ class Logger:
             self.close()
         except Exception:
             pass
-
-# function that is called in dpo_trainer.py
-def log_metrics(log_dir, filename="metrics.log", overwrite=True):
-    return Logger(log_dir, filename, overwrite)
     
