@@ -159,7 +159,7 @@ class DPOTrainer(Trainer):
         )
 
         self.model_accepts_loss_kwargs = False
-        self._metrics_logger = logs.log_metrics(args.output_dir)
+        self._metrics_logger = logs.Logger(args.output_dir)
 
 
     def _prepare_dataset(self, dataset, tokenizer):
